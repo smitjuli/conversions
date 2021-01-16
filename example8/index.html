@@ -12,7 +12,7 @@
 <script type="text/javascript">
     var formatDate = d3.time.format("%Y-%m-%d");
 
-    d3.csv('dummy.csv', function(error, data) {
+    d3.csv('output.csv', function(error, data) {
 
         data.forEach(function (d) {
             d.year = formatDate.parse(d.year);
@@ -25,12 +25,12 @@
         });
 
         var chart = makeLineChart(data, 'year', {
-            'Variable A': {column: 'variableA'},
-            'Variable B': {column: 'variableB'},
-            'Variable C': {column: 'variableC'},
-            'Variable D': {column: 'variableD'},
-            'Variable E': {column: 'variableE'},
-            'Variable F': {column: 'variableF'}
+            'Approval Estimate': {column: 'variableA'},
+            'Disapproval Estimate': {column: 'variableB'},
+            'Approval (High)': {column: 'variableC'},
+            'Approval (Low)': {column: 'variableD'},
+            'Disapproval (High)': {column: 'variableE'},
+            'Disapproval (Low)': {column: 'variableF'}
         }, {xAxis: 'Date', yAxis: 'Amount'});
         chart.bind("#chart-line1");
         chart.render();
